@@ -180,6 +180,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\modern-business.css" />
+    <Content Include="css\CustomStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -242,6 +243,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Other\FourOhFour.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Other\SideBar - Copy.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
