@@ -1,0 +1,188 @@
+﻿@model IEnumerable<HourlyFE.Models.EmployeeModel>
+@{
+    ViewBag.Title = "Company-Hourly";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Comapny
+                <small>Lorem ipsum dolor sit amet!</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li class="active">Company</li>
+            </ol>
+            <div style="padding:15px 0px">
+                <h3>Lorem ipsum dolor sit amet!</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praeclare hoc quidem. Graccho, eius fere, aequalí? Ut aliquid scire se gaudeant? Omnes enim iucundum motum, quo sensus hilaretur.</p>
+                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#registerCompany">Register</button>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <table id="tbl_companies">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Gender</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.id</td>
+                            <td>@item.firstname</td>
+                            <td>@item.lastname</td>
+                            <td>@item.gender</td>
+                            <td>@item.salary</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    
+</div>
+@*<div class="modal fade" id="registerCompany" role="dialog">
+    <div class="modal-dialog">
+        <form id="form_registerCompany" role="form">
+             Modal content
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Register a Company</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <label for="companyName">Name</label>
+                                    <input type="text" id="companyName" class="form-control" name="company_name">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label for="companyAddress">Address</label>
+                                    <input type="text" id="companyAddress" class="form-control" name="company_address">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label for="companyWebsite">Website</label>
+                                    <input type="text" id="companyWebsite" class="form-control" name="company_website">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label for="companyEmail">Email Address</label>
+                                    <input type="email" id="companyEmail" class="form-control" name="company_email">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label for="companyPhone">Phone Number</label>
+                                    <input type="phone" id="companyPhone" class="form-control" name="company_phone">
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="saveCompany" type="button">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>*@
+<div class="modal fade" id="registerCompany" role="dialog">
+    <div class="modal-dialog">
+        <form id="form_registerCompany" action="@Url.Action("Register", "Company")" role="form">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Register an Employee</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" id="firstname" class="form-control" name="firstname">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" id="lastname" class="form-control" name="lastname">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label for="gender">Gender</label>
+                                    <input type="text" id="gender" class="form-control" name="gender">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label for="salary">Salary</label>
+                                    <input type="text" id="salary" class="form-control" name="salary">
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="saveCompany1" type="submit">Submit</button> @*type="button"*@
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tbl_companies').DataTable();
+        //$("#saveCompany").click(function () {
+        //    var company = new Object();
+        //    company.name = $('#companyName').val();
+        //    company.address = $('#companyAddress').val();
+        //    company.website = $('#surname').val();
+        //    company.email = $('#companyEmail').val();
+        //    company.phone = $('#companyPhone').val();
+        //    $.ajax({
+        //        url: 'http://localhost:37716/api/employee',
+        //        type: 'POST',
+        //        dataType: 'json',
+        //        data: company, //or JSON.stringify(company)
+        //        contentType: 'application/json; charset=utf-8',
+        //        success: function (data, textStatus, xhr) {
+        //            console.log(data);
+        //        },
+        //        error: function (xhr, textStatus, errorThrown) {
+        //            console.log('Error in Operation');
+        //        }
+        //    });
+        //});
+        $("#saveCompany").click(function () {
+            var employee = new Object();
+            employee.firstname = $('#firstname').val();
+            employee.lastname = $('#lastname').val();
+            employee.gender = $('#gender').val();
+            employee.salary = $('#salary').val();
+           
+            $.ajax({
+                url: 'http://localhost:37716/api/employees',
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(employee),
+                contentType: 'application/json; charset=utf-8',
+                success: function (data, textStatus, xhr) {
+                    console.log(data);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log('Error in Operation');
+                }
+            });
+        });
+    });
+    
+</script>
