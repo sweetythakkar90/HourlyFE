@@ -98,7 +98,7 @@
 </div>*@
 <div class="modal fade" id="registerCompany" role="dialog">
     <div class="modal-dialog">
-        <form id="form_registerCompany" role="form">
+        <form id="form_registerCompany" action="@Url.Action("Register", "Company")" role="form">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -122,8 +122,8 @@
                                     <input type="text" id="gender" class="form-control" name="gender">
                                 </div>
                                 <div class="form-group col-lg-12">
-                                    <label for="salay">Salary</label>
-                                    <input type="text" id="salay" class="form-control" name="salay">
+                                    <label for="salary">Salary</label>
+                                    <input type="text" id="salary" class="form-control" name="salary">
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" id="saveCompany" type="button">Submit</button>
+                    <button class="btn btn-primary" id="saveCompany1" type="submit">Submit</button> @*type="button"*@
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
